@@ -13,7 +13,7 @@ import { Lightbox } from "@/components/Lightbox";
 import { useGallery } from "@/store/gallery";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { subject?: string; message?: string } => ({
     subject: typeof search.subject === "string" ? search.subject : undefined,
     message: typeof search.message === "string" ? search.message : undefined,
   }),

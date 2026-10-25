@@ -23,7 +23,7 @@ export const Route = createFileRoute("/services/$id")({
     const s = loaderData.service;
     return {
       meta: [
-        { title: `${s.title} · Régis - L'Œil Artistique` },
+        { title: `${s.title} · Régis — L'Œil Artistique` },
         { name: "description", content: s.description },
         { property: "og:title", content: `${s.title} · Régis` },
         { property: "og:description", content: s.description },
@@ -116,14 +116,20 @@ function ServiceDetail() {
           {/* ACTIONS */}
           <Reveal delay={0.15}>
             <div className="mt-14 flex flex-wrap gap-3">
-              <Link
-                to="/"
-                hash="contact"
-                search={{ subject: prefill.subject, message: prefill.message }}
-                className="btn-primary"
-              >
-                Demander un devis <ArrowUpRight size={16} />
-              </Link>
+              {service.slug === "formations" ? (
+                <Link to="/formation" hash="inscription" className="btn-primary">
+                  S'inscrire à une formation <ArrowUpRight size={16} />
+                </Link>
+              ) : (
+                <Link
+                  to="/"
+                  hash="contact"
+                  search={{ subject: prefill.subject, message: prefill.message }}
+                  className="btn-primary"
+                >
+                  Demander un devis <ArrowUpRight size={16} />
+                </Link>
+              )}
               <Link to="/galerie" search={{ cat: galleryCat }} className="btn-ghost">
                 <Images size={16} /> Voir le catalogue « {galleryCat} »
               </Link>
