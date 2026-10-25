@@ -57,7 +57,7 @@ function Hero() {
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/30 via-background/70 to-background" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/30 via-background/70 to-background" />
 
       <div className="container-x grid lg:grid-cols-12 gap-12 items-end pb-20">
         <div className="lg:col-span-8">
