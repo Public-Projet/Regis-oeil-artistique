@@ -4,9 +4,20 @@ import logo from "@/assets/logos.png.asset.json";
 
 function TikTokIcon({ size = 20 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.23 0 .45.03.66.08V10.3a6.37 6.37 0 00-.66-.04A6.34 6.34 0 000 16.61a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.8a8.13 8.13 0 004.77 1.53V6.69h-1.86z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
     </svg>
+
   );
 }
 
