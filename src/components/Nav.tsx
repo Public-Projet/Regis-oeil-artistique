@@ -7,6 +7,7 @@ const sectionLinks = [
   { href: "/about", label: "À propos" },
   { href: "/services", label: "Services" },
   { href: "/galerie", label: "Galerie" },
+  { href: "/formation", label: "Formation" },
   { href: "/articles", label: "Journal" },
   { href: "/#contact", label: "Contact" },
 ];
