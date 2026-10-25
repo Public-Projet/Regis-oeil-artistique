@@ -16,8 +16,8 @@ import { Route as FormationRouteImport } from './routes/formation'
 import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesIdRouteImport } from './routes/services.$id'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesIdRouteImport } from './routes/services/$id'
 import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
