@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as FormationRouteImport } from './routes/formation'
 import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -32,6 +33,11 @@ const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
 const GalerieRoute = GalerieRouteImport.update({
   id: '/galerie',
   path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormationRoute = FormationRouteImport.update({
+  id: '/formation',
+  path: '/formation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesRoute = ArticlesRouteImport.update({
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/articles': typeof ArticlesRouteWithChildren
+  '/formation': typeof FormationRoute
   '/galerie': typeof GalerieRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/services': typeof ServicesRouteWithChildren
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/articles': typeof ArticlesRouteWithChildren
+  '/formation': typeof FormationRoute
   '/galerie': typeof GalerieRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/articles/$slug': typeof ArticlesSlugRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/articles': typeof ArticlesRouteWithChildren
+  '/formation': typeof FormationRoute
   '/galerie': typeof GalerieRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/services': typeof ServicesRouteWithChildren
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/articles'
+    | '/formation'
     | '/galerie'
     | '/mentions-legales'
     | '/services'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/articles'
+    | '/formation'
     | '/galerie'
     | '/mentions-legales'
     | '/articles/$slug'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/articles'
+    | '/formation'
     | '/galerie'
     | '/mentions-legales'
     | '/services'
@@ -137,6 +149,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ArticlesRoute: typeof ArticlesRouteWithChildren
+  FormationRoute: typeof FormationRoute
   GalerieRoute: typeof GalerieRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   ServicesRoute: typeof ServicesRouteWithChildren
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/galerie'
       fullPath: '/galerie'
       preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formation': {
+      id: '/formation'
+      path: '/formation'
+      fullPath: '/formation'
+      preLoaderRoute: typeof FormationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles': {
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ArticlesRoute: ArticlesRouteWithChildren,
+  FormationRoute: FormationRoute,
   GalerieRoute: GalerieRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   ServicesRoute: ServicesRouteWithChildren,
