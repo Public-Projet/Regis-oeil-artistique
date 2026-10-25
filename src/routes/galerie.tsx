@@ -6,7 +6,7 @@ import { useGallery } from "@/store/gallery";
 import { Lightbox } from "@/components/Lightbox";
 
 export const Route = createFileRoute("/galerie")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { cat?: "Tout" | PhotoCategory } => ({
     cat:
       typeof search.cat === "string" && (categories as string[]).includes(search.cat)
         ? (search.cat as "Tout" | PhotoCategory)
@@ -38,8 +38,8 @@ function Gallery() {
     <div className="pt-32 pb-24">
       <div className="container-x">
         <div className="eyebrow">Galerie</div>
-        <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-[1]">
-          Vingt-deux images, un même <em className="text-[var(--ochre-deep)]">regard</em>.
+        <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-none">
+          Vingt-deux images, un même <em className="text-ochre-deep">regard</em>.
         </h1>
 
         <div className="mt-10 flex flex-wrap gap-2 items-center">
@@ -82,7 +82,7 @@ function Gallery() {
                 />
                 <div className="p-3 flex justify-between items-center">
                   <span className="font-display text-base">{p.title}</span>
-                  <span className="eyebrow text-[var(--ochre-deep)]">{p.category}</span>
+                  <span className="eyebrow text-ochre-deep">{p.category}</span>
                 </div>
               </motion.button>
             ))}
