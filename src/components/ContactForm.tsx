@@ -13,6 +13,7 @@ import {
   type ContactInput,
 } from "@/lib/forms";
 import { submitContact } from "@/lib/forms.functions";
+import { sendWeb3Form } from "@/lib/web3forms";
 
 export function ContactForm({
   defaultSubject = "",
@@ -53,6 +54,7 @@ export function ContactForm({
     setServerError("");
     try {
       await send({ data });
+      await sendWeb3Form({ subject: `[Demande] ${data.subject || data.service || "Contact"} - ${data.name}`, name: data.name, email: data.email, rows: contactSummaryRows(data) });
       setWaMessage(
         whatsappSummary(
           "Bonjour Régis, je viens de vous envoyer une demande depuis votre site :",

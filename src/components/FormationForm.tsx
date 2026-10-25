@@ -17,6 +17,7 @@ import {
   type FormationInput,
 } from "@/lib/forms";
 import { submitFormation } from "@/lib/forms.functions";
+import { sendWeb3Form } from "@/lib/web3forms";
 
 export function FormationForm({ defaultProgramme }: { defaultProgramme?: string }) {
   const send = useServerFn(submitFormation);
@@ -45,6 +46,7 @@ export function FormationForm({ defaultProgramme }: { defaultProgramme?: string 
     setServerError("");
     try {
       await send({ data });
+      await sendWeb3Form({ subject: `[Formation] ${data.programme ?? "Inscription"} — ${data.name}`, name: data.name, email: data.email, rows: formationSummaryRows(data) });
       setWaMessage(
         whatsappSummary(
           "Bonjour Régis, je viens de m'inscrire à une formation depuis votre site :",
