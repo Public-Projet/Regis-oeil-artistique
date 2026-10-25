@@ -2,6 +2,7 @@
  * Web3Forms delivery (browser-side: free plan rejects server-side requests).
  * The access key is public by design — it only allows sending to the email
  * registered on the Web3Forms account.
+ * Note: `ccemail` is a Pro-only feature (400 on the free plan), so no CC is sent.
  */
 const WEB3FORMS_ACCESS_KEY = "4521c613-3dc5-4638-ae51-97ba857ec96a";
 
@@ -21,10 +22,12 @@ export async function sendWeb3Form(opts: {
       subject: opts.subject,
       from_name: `${opts.name} via Régis - L'Œil Artistique`,
       replyto: opts.email,
-      ccemail: "afovosteve@gmail.com",
       ...fields,
     }),
   });
-  const json = (await res.json().catch(() => ({}))) as { success?: boolean };
-  if (!res.ok || !json.success) throw new Error("Envoi impossible");
+  const json = (await res.json().catch(() => ({}))) as { success?: boolean; message?: string };
+  if (!res.ok || !json.success) {
+    console.error("Web3Forms:", json.message ?? res.status);
+    throw new Error(json.message || "Envoi impossible");
+  }
 }
