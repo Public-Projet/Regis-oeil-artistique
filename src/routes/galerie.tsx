@@ -60,7 +60,7 @@ function Gallery() {
 
         <motion.div
           layout
-          className="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]"
+          className="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:balance]"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (
