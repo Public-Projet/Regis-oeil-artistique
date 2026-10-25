@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logos.png.asset.json";
 
 const sectionLinks = [
   { href: "/about", label: "À propos" },
@@ -30,8 +31,7 @@ export function Nav() {
     >
       <div className="container-x flex items-center justify-between h-20">
         <Link to="/" className="flex flex-col leading-none">
-          <span className="font-display text-xl md:text-2xl font-medium">Régis</span>
-          <span className="eyebrow mt-1">L'Œil Artistique</span>
+          <img src={logo.dc} alt="Regis l'oeil artistique" className="h-16 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
