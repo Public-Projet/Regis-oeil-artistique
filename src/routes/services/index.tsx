@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, Images, MessageCircle, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { services, globalOptions } from "@/data/services";
+import { services as allServices, globalOptions } from "@/data/services";
+
+const services = allServices.filter((s) => s.slug !== "formations");
 import { galleryFilterForService, whatsappUrl } from "@/lib/contact-links";
 
 export const Route = createFileRoute("/services/")({
@@ -11,13 +13,13 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Prestations photographiques au Bénin : mariage, événements, portraits, corporate, commercial, drone, retouche, formations. Studio Régis Houinsou, Porto-Novo.",
+          "Prestations photographiques au Bénin : mariage, événements, portraits, corporate, commercial, drone, retouche. Studio Régis Houinsou, Porto-Novo.",
       },
       { property: "og:title", content: "Services & Tarifs · Régis — L'Œil Artistique" },
       {
         property: "og:description",
         content:
-          "Huit pôles d'expertise photographique — de l'événement intime au reportage documentaire. Tarifs adaptés au marché béninois.",
+          "Sept pôles d'expertise photographique — de l'événement intime au reportage documentaire. Tarifs adaptés au marché béninois.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/services" },
@@ -70,7 +72,7 @@ function Services() {
             </Reveal>
             <Reveal delay={0.1} className="lg:col-span-4">
               <p className="text-[var(--cream)]/75 leading-relaxed">
-                Huit pôles d'expertise, de la couverture d'événement à la formation
+                Sept pôles d'expertise, de la couverture d'événement à la retouche
                 professionnelle. Les tarifs affichés sont des repères — votre
                 proposition finale est toujours construite avec vous.
               </p>
@@ -156,7 +158,7 @@ function Services() {
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-4 pb-6 border-b border-border">
               <h2 className="font-display text-3xl md:text-4xl leading-tight">
-                Les huit pôles d'expertise
+                Les sept pôles d'expertise
               </h2>
               <div className="eyebrow text-muted-foreground">
                 {services.length} prestations
