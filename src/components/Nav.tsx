@@ -7,8 +7,8 @@ import logo from "@/assets/logos.png.asset.json";
 const sectionLinks = [
   { href: "/about", label: "À propos" },
   { href: "/services", label: "Services" },
-  { href: "/galerie", label: "Galerie" },
   { href: "/formation", label: "Formation" },
+  { href: "/galerie", label: "Galerie" },
   { href: "/articles", label: "Journal" },
   { href: "/#contact", label: "Contact" },
 ];
